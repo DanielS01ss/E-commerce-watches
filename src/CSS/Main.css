@@ -1,0 +1,16 @@
+.main-logo{
+ width: 100%;
+ height: auto;
+}
+
+Navbar{
+  position: absolute;
+  top:10px;
+
+}
+
+.autumn-leaf{
+  width: 60px;
+  display: inline-block;
+  margin-bottom: 30px;
+}

@@ -1,0 +1,35 @@
+.category-card-container{
+
+    width: 90%;
+    margin:100px auto 100px ;
+    /* border:1px solid black; */
+}
+
+.category-img{
+  width: 100%;
+}
+
+.category-header{
+    font-family: 'Arvo', serif;
+}
+
+
+.category-description{
+  font-family: 'PT Serif', serif;
+  font-size:1.2rem;
+}
+
+.category-shop-btn{
+  padding:20px 40px 20px 40px;
+  border: 2px solid black;
+  background-color: #fff;
+  font-size:1rem;
+  font-weight: bold;
+  transition: 0.4s ease-in;
+}
+
+.category-shop-btn:hover{
+   color:#fff;
+   transition: 0.4s ease-out;
+   background-color: #000;
+}
