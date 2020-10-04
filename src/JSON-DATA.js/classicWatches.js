@@ -23,7 +23,7 @@ const classicWatches = [
   {
     "id":3,
     "name":"Celtic Givs",
-    "image":"GelticGiv",
+    "image":"CelticGiv",
     "price":"90",
     "description":"Movement: Japanese imported quartz analog movement and battery, provide precise time and long-term running. The watch can be used for more than 1 years."
   },

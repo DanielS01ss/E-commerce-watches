@@ -22,7 +22,7 @@ class Main extends React.Component{
       });
       this.setState({
         categoryData:categoryData
-      })
+      });
 
   }
 

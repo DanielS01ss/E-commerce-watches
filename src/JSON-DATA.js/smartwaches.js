@@ -22,7 +22,7 @@ const smartWatches = [
   },
   {
     "id":3,
-    "name":"Samsung Galaxy Watch Active 2",
+    "name":"Samsung Galaxy Active 2",
     "image":"samsung-galaxy-watch-active-2",
     "price":"150",
     "description":"The Galaxy Watch Active 2, a sleek smartwatch with built-in sleep-tracking, advanced workout-tracking, above-average battery life and FDA-approved ECG sensor for diagnosing atrial fibrillation. In the design department, Samsung wins by a mile. This is the smartwatch you'll actually want to wear, even when you're not working out."

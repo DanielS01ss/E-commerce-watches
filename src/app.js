@@ -4,7 +4,8 @@ import Main from "./Components/Main.js";
 import Footer from "./Components/Footer.js";
 import {BrowserRouter as Router , Route,Switch } from "react-router-dom";
 import About from "./Components/About.js";
-
+import Contact from "./Components/Contact.js";
+import Products from "./Components/Products.js";
 
 import "./CSS/Main.css";
 
@@ -28,8 +29,18 @@ class App extends React.Component{
          </Route>
          <Route exact path="/about">
                 <Navbar/>
-          <img className="main-logo" src={require("./Photos/Main-background/workshop.jpg")}/> 
+          <img className="main-logo" src={require("./Photos/Main-background/workshop.jpg")}/>
               <About/>
+         </Route>
+         <Route exact path="/contact">
+            <Navbar/>
+            <img className="main-logo" src={require("./Photos/Main-background/Contact-us.jpg")}/>
+            <Contact/>
+         </Route>
+         <Route exact path="/products">
+          <Navbar/>
+          <img className="main-logo" src={require("./Photos/Main-background/products-background.jpg")}/>
+          <Products/>
          </Route>
           </Switch>
          <Footer/>

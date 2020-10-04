@@ -9,8 +9,64 @@ class Navbar extends React.Component{
 
   }
 componentDidMount(){
-window.scrollTo(0, 0)
-}
+window.scrollTo(0, 0);
+
+const hamburgerIcon = document.querySelector(".menu-icon");
+const hamburgerLines = document.querySelector(".nav-item-side");
+const hiddenMenuItems = document.querySelector(".hidden-menu");
+const navbar = document.querySelector("nav");
+const hamburger = document.querySelector("#hamburger");
+
+ hamburgerIcon.addEventListener("click",()=>{
+  hamburgerIcon.classList.toggle("open");
+  hamburgerLines.classList.toggle("show");
+
+  if(navbar.classList.contains("navbar-sticky")){
+
+      // if(hamburgerIcon.classList.contains("open")){
+      //
+      //   hambuger.classList.remove("small");
+      //   hambuger.classList.add("sticky");
+      // }
+      // else{
+      //   hambuger.classList.remove("small");
+      //   hambuger.classList.add("sticky");
+      // }
+  }
+
+  if(hiddenMenuItems.classList.contains("hidden")){
+    hiddenMenuItems.classList.remove("hidden");
+    hiddenMenuItems.classList.add("open");
+
+  }
+  else{
+    hiddenMenuItems.classList.remove("open");
+    hiddenMenuItems.classList.add("hidden");
+      }
+    });
+
+    const nav = document.querySelector("ul");
+    const hamburgerMenu = document.querySelector(".menu-icon");
+    const hiddenMenu = document.querySelector(".hidden-menu");
+  if(window.innerWidth<=1250){
+    nav.classList.add("no-display");
+    hamburgerMenu.setAttribute("id","hamburger");
+  }
+  else{
+     if(nav.classList.contains("no-display")){
+       nav.classList.remove("no-display");
+     }
+      hamburgerMenu.removeAttribute("id");
+      if(hiddenMenu.classList.contains("open")){
+        hiddenMenu.classList.remove("open");
+        hiddenMenu.classList.add("hidden");
+      }
+      if(hamburgerMenu.classList.contains("open")){
+        hamburgerMenu.classList.remove("open");
+      }
+
+  }
+  }
 
   render(){
         return(
@@ -19,10 +75,10 @@ window.scrollTo(0, 0)
           <p className="main-logo">Daniel's Watches</p>
             <ul className="nav-items-container">
             <Link to="/" style={{textDecoration:"none"},{color:"inherit"}}> <li className="nav-item itm">Home</li></Link>
-            <li className="nav-item itm">Products</li>
-            <Link to="/about" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">About us</li>
-            <li className="nav-item itm">Contact </li>
-            <li className="nav-item cart"><i className="fas fa-shopping-cart" aria-hidden="true"></i><span className="items-count">0</span></li></Link>
+            <Link to="/products" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">Products</li></Link>
+            <Link to="/about" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">About us</li></Link>
+            <Link to="/contact" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">Contact </li></Link>
+            <li className="nav-item cart"><i className="fas fa-shopping-cart" aria-hidden="true"></i><span className="items-count">0</span></li>
             </ul>
           </div>
               <div className="menu-icon">
@@ -33,9 +89,9 @@ window.scrollTo(0, 0)
               <div className="hidden-menu hidden">
               <ul>
                 <Link to="/" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Home</li></Link>
-                <li className="nav-item-side">Products</li>
-                <Link to="/" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">About us</li></Link>
-                <li className="nav-item-side">Contact </li>
+                <Link to="/products" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Products</li></Link>
+                <Link to="/about" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">About us</li></Link>
+                <Link to="/contact" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Contact </li></Link>
                 <li className="nav-item-side"><i className="fas fa-shopping-cart" aria-hidden="true"></i><span className="items-count-hidden-menu">0</span></li>
               </ul>
               </div>

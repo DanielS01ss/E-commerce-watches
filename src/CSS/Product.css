@@ -1,0 +1,32 @@
+.watch-categories{
+  margin-left: 30px;
+  width: 70%;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size:1.5rem;
+  margin-bottom: 100px;
+}
+
+.products-header{
+  text-align: center;
+  font-family: 'Alegreya Sans', sans-serif;
+  font-size:3rem;
+}
+.products-container{
+  width: 100%;
+}
+
+.products-cards-container{
+  width: 100%;
+  padding-left:5%;
+  margin-left:auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width:1200px){
+  .products-cards-container{
+      padding-left:20%;
+  }
+
+}

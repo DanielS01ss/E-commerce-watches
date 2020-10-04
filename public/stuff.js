@@ -87,7 +87,7 @@ window.setTimeout(function(){
   const navbar = document.querySelector("nav");
   const hamburger = document.querySelector("#hamburger");
 
-  hamburgerIcon.addEventListener("click",()=>{
+   hamburgerIcon.addEventListener("click",()=>{
     hamburgerIcon.classList.toggle("open");
     hamburgerLines.classList.toggle("show");
 
