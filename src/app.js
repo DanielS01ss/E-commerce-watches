@@ -6,6 +6,9 @@ import {BrowserRouter as Router , Route,Switch } from "react-router-dom";
 import About from "./Components/About.js";
 import Contact from "./Components/Contact.js";
 import Products from "./Components/Products.js";
+import classicWatches from "./JSON-DATA.js/classicWatches.js";
+import smartWatches from "./JSON-DATA.js/smartwaches.js";
+import NotFound from "./Components/NotFound.js";
 
 import "./CSS/Main.css";
 
@@ -13,7 +16,30 @@ class App extends React.Component{
 
   constructor(props){
     super(props);
+    this.state = {
+      smartWaches:[],
+      classicWatches:[],
+      selectedCategory:'',
+      selectedWatch:''
+    }
+    this.changeOption = this.changeOption.bind(this);
   }
+
+  componentDidMount(){
+    this.setState({
+      smartWatches:smartWatches,
+      classicWatches:classicWatches
+    });
+
+  }
+
+  changeOption(category){
+
+    this.setState({
+      selectedCategory:category
+    })
+  }
+
   render(){
     return(
       <div>
@@ -24,7 +50,7 @@ class App extends React.Component{
 
        <img className="main-logo" src={require("./Photos/Main-background/Main-bkg.jpg")}/>
             <Navbar/>
-            <Main/>
+            <Main handleOption={this.changeOption}/>
          </div>
          </Route>
          <Route exact path="/about">
@@ -40,7 +66,7 @@ class App extends React.Component{
          <Route exact path="/products">
           <Navbar/>
           <img className="main-logo" src={require("./Photos/Main-background/products-background.jpg")}/>
-          <Products/>
+          <Products selectedCategory={this.state.selectedCategory}/>
          </Route>
           </Switch>
          <Footer/>

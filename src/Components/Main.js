@@ -28,7 +28,7 @@ class Main extends React.Component{
 
   render(){
     let categoriesDisplay ;
-    categoriesDisplay = this.state.categoryData.map(itm=><CategoryCard key={itm.id} image={itm.img} alt={itm.alt} header={itm.collectionName} description={itm.description}/>);
+    categoriesDisplay = this.state.categoryData.map(itm=><CategoryCard key={itm.id} image={itm.img} categoryName={itm.categoryName} alt={itm.alt} handleOption={this.props.handleOption} header={itm.collectionName} description={itm.description}/>);
 
     return(
 

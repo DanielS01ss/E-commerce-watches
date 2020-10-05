@@ -4,14 +4,16 @@ const categoryData = [
     "img":"Subsection-3",
     "alt":"smartwaches-logo",
     "collectionName":"Smartwatches",
-    "description":"For all you techies"
+    "description":"For all you techies",
+    "categoryName":"smartWatches"
   },
   {
     "id":2,
     "img":"Subsection-1",
     "alt":"watches-logo",
     "collectionName":"Classic Watches",
-    "description":"For all you classics"
+    "description":"For all you classics",
+    "categoryName":"classicWatches"
   }
 ];
 

@@ -11,7 +11,8 @@ class Products extends React.Component{
 
       this.state = {
         smartWatches:[],
-        classicWatches:[]
+        classicWatches:[],
+        selectValue:"classicWatches"
       }
   }
 
@@ -21,10 +22,18 @@ class Products extends React.Component{
     window.scrollTo(0,0);
     this.setState({
       smartWatches:smartWatches,
-      classicWatches:classicWatches
-    })
+      classicWatches:classicWatches,
+      selectValue:this.props.selectedCategory
+    });
 
   }
+
+ handleOption = (evt)=>{
+   this.setState({
+     selectValue:evt.target.value
+   })
+
+ }
 
   render(){
     let myCardsSmartWatches = this.state.smartWatches.map(watch=>{
@@ -38,16 +47,19 @@ class Products extends React.Component{
         <h1 className="products-header">Our collection</h1>
         <div className="custom-select">
 
-          <select className="watch-categories">
-            <option value="">Select Watch Category</option>
-            <option value="Classic Watches">Classic Watches</option>
-            <option value="SmartWatches">SmartWatches</option>
+          <select value={this.state.selectValue} onChange={this.handleOption} className="watch-categories">
+            <option value="none">Select Watch Category</option>
+            <option value="classicWatches">Classic Watches</option>
+            <option value="smartWatches">SmartWatches</option>
+            <option value="all">All</option>
           </select>
         </div>
 
         <div className="products-cards-container">
-        {myCardsSmartWatches}
-        {myCardsClassicWatches}
+        {this.state.selectValue==="smartWatches"&&myCardsSmartWatches}
+        {this.state.selectValue==="classicWatches"&&myCardsClassicWatches}
+        {this.state.selectValue=="all"&& myCardsSmartWatches}
+        {this.state.selectValue=="all"&&myCardsClassicWatches}
         </div>
       </div>
       )
