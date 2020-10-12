@@ -24,7 +24,7 @@ class Main extends React.Component{
         categoryData:categoryData
       });
 
-  }
+  } 
 
   render(){
     let categoriesDisplay ;

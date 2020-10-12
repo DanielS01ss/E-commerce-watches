@@ -28,5 +28,10 @@
   .products-cards-container{
       padding-left:20%;
   }
+}
 
+@media screen and (max-width:500px){
+  .watch-categories{
+    font-size:0.8rem;
+  }
 }

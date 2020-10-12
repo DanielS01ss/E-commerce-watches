@@ -20,6 +20,18 @@ class Products extends React.Component{
 
   componentDidMount(){
     window.scrollTo(0,0);
+    const hamburgerMenu = document.querySelector(".menu-icon");
+    const hiddenMenu = document.querySelector(".hidden-menu");
+    if(hiddenMenu.classList.contains("open")){
+      hiddenMenu.classList.remove("open");
+      hiddenMenu.classList.add("hidden");
+    }
+    setTimeout(function(){
+      if(hamburgerMenu.classList.contains("open")){
+        hamburgerMenu.classList.remove("open");
+      }
+
+    },50)
     this.setState({
       smartWatches:smartWatches,
       classicWatches:classicWatches,
@@ -37,10 +49,10 @@ class Products extends React.Component{
 
   render(){
     let myCardsSmartWatches = this.state.smartWatches.map(watch=>{
-       return <ProductCard img={watch.image} category={"SmartWatches"} key={watch.id} brandName={watch.name} description={watch.description} price={watch.price}/>
+       return <ProductCard img={watch.image} addItem={this.props.addItem}   watch={watch}  category={"SmartWatches"}  handleClick={this.props.handleClick} key={watch.id} brandName={watch.name} prodId={watch.id} description={watch.description} price={watch.price}/>
     });
     let myCardsClassicWatches = this.state.classicWatches.map(watch=>{
-       return <ProductCard img={watch.image} category={"ClassicWatches"} key={watch.id} brandName={watch.name} description={watch.description} price={watch.price}/>
+       return <ProductCard img={watch.image} addItem={this.props.addItem} watch={watch} category={"ClassicWatches"} handleClick={this.props.handleClick} key={watch.id} brandName={watch.name} prodId={watch.id} description={watch.description} price={watch.price}/>
     });
       return(
         <div className="products-container">

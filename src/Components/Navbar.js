@@ -21,18 +21,6 @@ const hamburger = document.querySelector("#hamburger");
   hamburgerIcon.classList.toggle("open");
   hamburgerLines.classList.toggle("show");
 
-  if(navbar.classList.contains("navbar-sticky")){
-
-      // if(hamburgerIcon.classList.contains("open")){
-      //
-      //   hambuger.classList.remove("small");
-      //   hambuger.classList.add("sticky");
-      // }
-      // else{
-      //   hambuger.classList.remove("small");
-      //   hambuger.classList.add("sticky");
-      // }
-  }
 
   if(hiddenMenuItems.classList.contains("hidden")){
     hiddenMenuItems.classList.remove("hidden");
@@ -78,7 +66,7 @@ const hamburger = document.querySelector("#hamburger");
             <Link to="/products" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">Products</li></Link>
             <Link to="/about" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">About us</li></Link>
             <Link to="/contact" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item itm">Contact </li></Link>
-            <li className="nav-item cart"><i className="fas fa-shopping-cart" aria-hidden="true"></i><span className="items-count">0</span></li>
+            <li className="nav-item cart"><Link to="/cart" className="cart-logo-link"><i className="fas fa-shopping-cart" aria-hidden="true"></i></Link><span className="items-count">{this.props.itemsInCart}</span></li>
             </ul>
           </div>
               <div className="menu-icon">
@@ -88,11 +76,11 @@ const hamburger = document.querySelector("#hamburger");
               </div>
               <div className="hidden-menu hidden">
               <ul>
-                <Link to="/" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Home</li></Link>
-                <Link to="/products" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Products</li></Link>
-                <Link to="/about" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">About us</li></Link>
-                <Link to="/contact" style={{textDecoration:"none"},{color:"inherit"}}><li className="nav-item-side">Contact </li></Link>
-                <li className="nav-item-side"><i className="fas fa-shopping-cart" aria-hidden="true"></i><span className="items-count-hidden-menu">0</span></li>
+                <Link to="/" style={{textDecoration:"none",color:"inherit"}}><li className="nav-item-side">Home</li></Link>
+                <Link to="/products" style={{textDecoration:"none",color:"inherit"}}><li className="nav-item-side">Products</li></Link>
+                <Link to="/about" style={{textDecoration:"none",color:"inherit"},{padding:"0"}}><li className="nav-item-side">About us</li></Link>
+                <Link to="/contact" style={{textDecoration:"none",color:"inherit"}}><li className="nav-item-side">Contact </li></Link>
+                <li className="nav-item-side"><Link to="/cart" className="cart-logo-small-menu"><i className="fas fa-shopping-cart" aria-hidden="true"></i></Link><span className="items-count-hidden-menu"> {this.props.itemsInCart} </span></li>
               </ul>
               </div>
           </nav>

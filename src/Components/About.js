@@ -1,5 +1,6 @@
 import React , {useEffect} from "react";
 import "../CSS/About.css";
+import {Link} from "react-router-dom";
 
 class About extends React.Component{
 
@@ -8,7 +9,19 @@ class About extends React.Component{
   }
 
   componentDidMount(){
-    window.scrollTo(0, 0);
+   window.scrollTo(0, 0);
+  const hamburgerMenu = document.querySelector(".menu-icon");
+  const hiddenMenu = document.querySelector(".hidden-menu");
+  if(hiddenMenu.classList.contains("open")){
+    hiddenMenu.classList.remove("open");
+    hiddenMenu.classList.add("hidden");
+  }
+  setTimeout(function(){
+    if(hamburgerMenu.classList.contains("open")){
+      hamburgerMenu.classList.remove("open");
+    }
+
+  },50)
   }
 
 
@@ -29,7 +42,7 @@ class About extends React.Component{
           <img alt="retail" className="retail-photo" src={require("../Photos/Main-background/retail.jpg")}/>
           <p className="add-text">Now we are the biggest watch store from eastern europe</p>
           <p className="add-text">You should check our dope offers: </p>
-          <button className="store-btn">Take me to the store!!</button>
+          <button className="store-btn"><Link style={{color:"#fff",textDecoration:"none"}} to="/products">Take me to the store!!</Link></button>
         </div>
       </div>
     );

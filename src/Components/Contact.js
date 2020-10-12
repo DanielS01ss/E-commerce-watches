@@ -14,10 +14,23 @@ class Contact extends React.Component{
     }
     this.handleEmail = this.handleEmail.bind(this);
     this.handleMessage = this.handleMessage.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
     window.scrollTo(0,0);
+    const hamburgerMenu = document.querySelector(".menu-icon");
+    const hiddenMenu = document.querySelector(".hidden-menu");
+    if(hiddenMenu.classList.contains("open")){
+      hiddenMenu.classList.remove("open");
+      hiddenMenu.classList.add("hidden");
+    }
+    setTimeout(function(){
+      if(hamburgerMenu.classList.contains("open")){
+        hamburgerMenu.classList.remove("open");
+      }
+
+    },50)
   }
 
   handleChange(evt){
