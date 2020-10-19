@@ -20,6 +20,8 @@ class App extends React.Component{
 
   constructor(props){
     super(props);
+
+
     this.state = {
       smartWaches:[],
       classicWatches:[],
@@ -37,21 +39,53 @@ class App extends React.Component{
       total:0
     }
 
+
     this.emptyCart = this.emptyCart.bind(this);
     this.changeOption = this.changeOption.bind(this);
     this.increaseQuantity = this.increaseQuantity.bind(this);
     this.decreaseQuantity = this.decreaseQuantity.bind(this);
     this.addItem = this.addItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
+    this.componentCleanup = this.componentCleanup.bind(this);
   }
+
+
+
+
 
   componentDidMount(){
     this.setState({
-      smartWatches:smartWatches,
+      smartWaches:smartWatches,
       classicWatches:classicWatches
     });
 
-  }
+    window.addEventListener('beforeunload', this.componentCleanup);
+
+
+    if(localStorage.getItem("oldState")){
+
+        this.setState(prevState=>{
+          prevState = JSON.parse(localStorage.getItem("oldState"));
+          return prevState;
+        });
+    }
+
+
+
+
+}
+
+
+componentCleanup(){
+  localStorage.setItem("oldState",JSON.stringify(this.state));
+
+}
+
+componentWillUnmount(){
+
+
+}
+
 
   handleClick = (elementId,category)=>{
     ///la category vezi sa pui upperCase cand verifici
@@ -117,14 +151,16 @@ class App extends React.Component{
       this.setState(prevState=>{
         for(const watch of prevState.smartWatches){
            if(watch.id==id){
-             watch.itemCount--;
-             prevState.total-=watch.price;
-             if(watch.itemCount==0)
+
+
+             if(watch.itemCount-1==0)
              {
-               this.setState(prevState=>{
-                   prevState.total = 0;
-               })
+
                this.removeItem(id,category);
+             }
+             else{
+               watch.itemCount--;
+               prevState.total-=watch.price;
              }
            }
         }
@@ -140,10 +176,10 @@ class App extends React.Component{
             prevState.total-=watch.price;
             if(watch.itemCount==0)
             {
-              this.setState(prevState=>{
-                  prevState.total = 0;
-              })
               this.removeItem(id,category);
+            }
+            else{
+              prevState.total-=watch.price;
             }
           }
 
@@ -232,9 +268,7 @@ class App extends React.Component{
     let newClassicWatches = this.state.classicWatches;
     let newSmartWatches = this.state.smartWatches;
 
-    console.log(this.state.cart);
-    console.log(newSmartWatches);
-    console.log(newClassicWatches);
+
     for(const item of this.state.cart){
         if(item.category=="ClassicWatches")
         {
@@ -283,7 +317,8 @@ class App extends React.Component{
          <Route exact path="/products">
           <Navbar itemsInCart={this.state.cart.length}/>
           <img className="main-logo" src={require("./Photos/Main-background/products-background.jpg")}/>
-          <Products selectedCategory={this.state.selectedCategory} addItem={this.addItem} handleClick={this.handleClick}/>
+
+          <Products selectedCategory={this.state.selectedCategory} smartWatches={this.state.smartWaches} classicWatches={this.state.classicWatches} addItem={this.addItem} handleClick={this.handleClick}/>
          </Route>
          <Route exact path="/details">
           <Navbar itemsInCart={this.state.cart.length}/>

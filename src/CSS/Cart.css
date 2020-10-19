@@ -15,6 +15,10 @@
   font-size: 2.5rem;
 }
 
+.cart-footer{
+  margin-left:40%;
+}
+
 .product-preview{
   width: 100px;
   }
@@ -22,13 +26,13 @@
 .cart-element{
   font-size:1.5rem;
   display: flex;
-  justify-content: space-around;
+
 }
 .cart-product-name-item{
-
+   width: 200px;
 }
 .cart-product-price-item{
-
+  text-align: center;
 }
 
 .increase-btn{
@@ -65,10 +69,7 @@
   cursor: pointer;
 }
 
-.cart-footer{
-  margin-left:80%;
-  margin-top:100px;
-}
+
 
 .empty-cart-text{
   font-family: 'Mulish', sans-serif;
@@ -94,6 +95,26 @@ box-shadow: 0px 0px 25px 0px rgba(240,60,60,1);
 }
 
 
+@media screen and (min-width:1000px){
+
+  .cart-footer{
+    margin-left:80%;
+    margin-top:100px;
+  }
+
+  .cart-product-name-item{
+     width: 200px;
+  }
+  .cart-product-price-item{
+    text-align: center;
+  }
+  .cart-element{
+    font-size:1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}
+
 @media screen and (max-width:1000px){
   .column-headers-container{
     display: none;
@@ -104,7 +125,7 @@ box-shadow: 0px 0px 25px 0px rgba(240,60,60,1);
 
   }
   .card-product-price-item{
-    text-align: center;
+    
   }
   .trash-can-icon{
     margin-left:5%;

@@ -32,9 +32,10 @@ class Products extends React.Component{
       }
 
     },50)
+    console.log(this.props.smartWatches);
     this.setState({
-      smartWatches:smartWatches,
-      classicWatches:classicWatches,
+      smartWatches:this.props.smartWatches,
+      classicWatches:this.props.classicWatches,
       selectValue:this.props.selectedCategory
     });
 
@@ -48,6 +49,7 @@ class Products extends React.Component{
  }
 
   render(){
+
     let myCardsSmartWatches = this.state.smartWatches.map(watch=>{
        return <ProductCard img={watch.image} addItem={this.props.addItem}   watch={watch}  category={"SmartWatches"}  handleClick={this.props.handleClick} key={watch.id} brandName={watch.name} prodId={watch.id} description={watch.description} price={watch.price}/>
     });
